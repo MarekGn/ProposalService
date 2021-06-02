@@ -4,6 +4,7 @@ import net.kaczmarzyk.spring.data.jpa.web.SpecificationArgumentResolver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +37,7 @@ public class ProposalServiceApplication implements WebMvcConfigurer {
                 .select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .paths(PathSelectors.any())
-                .build();
+                .build()
+                .ignoredParameterTypes(Pageable.class);
     }
 }

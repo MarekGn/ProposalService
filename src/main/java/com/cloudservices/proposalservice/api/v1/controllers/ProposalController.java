@@ -5,6 +5,8 @@ import com.cloudservices.proposalservice.api.v1.dto.requests.ProposalStateReques
 import com.cloudservices.proposalservice.api.v1.dto.responses.ProposalResponse;
 import com.cloudservices.proposalservice.entities.Proposal;
 import com.cloudservices.proposalservice.services.ProposalService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import net.kaczmarzyk.spring.data.jpa.domain.Equal;
 import net.kaczmarzyk.spring.data.jpa.domain.LikeIgnoreCase;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.And;
@@ -31,6 +33,16 @@ public class ProposalController {
     }
 
     @GetMapping
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "page", dataType = "integer", paramType = "query",
+                    value = "Results page you want to retrieve (0..N)"),
+            @ApiImplicitParam(name = "size", dataType = "integer", paramType = "query",
+                    value = "Number of records per page."),
+            @ApiImplicitParam(name = "name", dataType = "string", paramType = "query",
+                    value = "Optional filter by proposal name"),
+            @ApiImplicitParam(name = "state", dataType = "string", paramType = "query",
+                    value = "Optional filter by proposal state")
+    })
     public Page<ProposalResponse> getAllProposals(
             @And({
                     @Spec(path = "name", spec = LikeIgnoreCase.class),
