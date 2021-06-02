@@ -40,7 +40,7 @@ public class ProposalController {
                     value = "Number of records per page."),
             @ApiImplicitParam(name = "name", dataType = "string", paramType = "query",
                     value = "Optional filter by proposal name"),
-            @ApiImplicitParam(name = "state", dataType = "string", paramType = "query",
+            @ApiImplicitParam(name = "proposalState", dataType = "string", paramType = "query",
                     value = "Optional filter by proposal state")
     })
     public Page<ProposalResponse> getAllProposals(
