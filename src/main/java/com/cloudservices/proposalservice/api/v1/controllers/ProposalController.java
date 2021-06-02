@@ -55,12 +55,12 @@ public class ProposalController {
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateProposal(@PathVariable Long id, @Valid @RequestBody ProposalRequest proposalRequest) {
         proposalService.updateProposal(id, proposalRequest);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}/state")
     public ResponseEntity<Object> updateProposalState(@PathVariable Long id, @Valid @RequestBody ProposalStateRequest proposalStateRequest) {
         proposalService.updateProposalState(id, proposalStateRequest);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok().build();
     }
 }
