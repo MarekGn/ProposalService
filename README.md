@@ -29,4 +29,4 @@ Default:
 
 ## Assumptions
 - The service does not provide the option to delete proposals. It is assumed that in the future a cron job will delete outdated proposals with status DELETED.
-- The assumption is that this is an internal application. Otherwise, the ID implementation will be replaced with an unpredictable UUID for security purposes
+- It is assumed that, this is an internal service. Otherwise, the ID implementation will be replaced with an unpredictable UUID for security purposes
