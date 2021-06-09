@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Proposal")
 @Data
-@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @Audited
 public class Proposal extends AbstractEntity {

@@ -1,6 +1,7 @@
 package com.cloudservices.proposalservice.entities;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -12,12 +13,14 @@ import java.util.Date;
 
 @MappedSuperclass
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public abstract class AbstractEntity implements Serializable {
 
     @Id
     @GeneratedValue
+    @EqualsAndHashCode.Include
     private Long id;
 
     @CreatedDate
